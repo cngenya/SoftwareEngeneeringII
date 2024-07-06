@@ -1,0 +1,35 @@
+class Student:
+    def __init__(self, name, id_number, program):
+        self.name = name
+        self.id_number = id_number
+        self.program = program
+
+    def __str__(self):
+        return f"Name: {self.name}, ID: {self.id_number}, Program: {self.program}"
+
+class University:
+    def __init__(self, name):
+        self.name = name
+        self.students = []
+
+    def register_student(self, name, id_number, program):
+        student = Student(name, id_number, program)
+        self.students.append(student)
+        print(f"Student {name} registered successfully in {self.name}")
+
+    def list_students(self):
+        print(f"List of Students in {self.name}:")
+        for student in self.students:
+            print(student)
+
+# Create an instance of the University
+jkuat = University("JKUAT")
+
+# Register students
+jkuat.register_student("John Doe", "2021001", "Computer Science")
+jkuat.register_student("Jane Smith", "2021002", "Electrical Engineering")
+jkuat.register_student("Alice Johnson", "2021003", "Civil Engineering")
+
+# List all registered students
+jkuat.list_students()
+
